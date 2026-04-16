@@ -1,6 +1,56 @@
-// import { NextResponse } from "next/server";
 
-// const SYSTEM_PROMPT = `You are an intelligent AI assistant for Anthem Infotech Pvt. Ltd., a professional software product development company based in Zirakpur, Punjab, India. Your role is to help website visitors, answer questions about services, and guide them toward the team.
+
+
+// import { NextResponse } from "next/server";
+// import { QdrantClient } from "@qdrant/js-client-rest";
+// import { pipeline } from "@xenova/transformers";
+
+// // ── Qdrant client (singleton) ──────────────────────────────
+// const qdrant = new QdrantClient({
+//   url: process.env.QDRANT_URL || "http://localhost:6333",
+//   apiKey: process.env.QDRANT_API_KEY,          // undefined = local, fine
+// });
+
+// const COLLECTION = "anthem_qa";
+
+// // ── Embedding model (lazy singleton) ──────────────────────
+// let _embedder = null;
+// async function getEmbedder() {
+//   if (!_embedder) {
+//     _embedder = await pipeline(
+//       "feature-extraction",
+//       "Xenova/all-MiniLM-L6-v2"
+//     );
+//   }
+//   return _embedder;
+// }
+
+// // ── Embed a string → float[] ───────────────────────────────
+// async function embed(text) {
+//   const embedder = await getEmbedder();
+//   const out = await embedder(text, { pooling: "mean", normalize: true });
+//   return Array.from(out.data);
+// }
+
+// // ── Qdrant semantic search → top-k Q&A hits ───────────────
+// async function searchQdrant(query, topK = 3) {
+//   try {
+//     const vector = await embed(query);
+//     const results = await qdrant.search(COLLECTION, {
+//       vector,
+//       limit: topK,
+//       with_payload: true,
+//       score_threshold: 0.45,   // ignore low-confidence matches
+//     });
+//     return results.map((r) => r.payload);
+//   } catch (err) {
+//     console.error("Qdrant search error:", err.message);
+//     return [];   // graceful fallback — Claude still answers from system prompt
+//   }
+// }
+
+// // ── Base system prompt ─────────────────────────────────────
+// const BASE_SYSTEM_PROMPT = `You are an intelligent AI assistant for Anthem Infotech Pvt. Ltd., a professional software product development company based in Zirakpur, Punjab, India. Your role is to help website visitors, answer questions about services, and guide them toward the team.
 
 // COMPANY OVERVIEW:
 // - Name: Anthem Infotech Pvt. Ltd.
@@ -48,32 +98,75 @@
 // - Always encourage visitors to get in touch or request a quote for pricing
 // - For pricing queries: explain it depends on project scope and guide them to /request-a-quote
 // - Mention real contact details (phone/email) when relevant
-// - Never make up facts about the company not listed above`;
+// - Never make up facts about the company not listed above
+// - If RELEVANT KNOWLEDGE BASE entries are provided below, prioritize them in your answer
+//  - Always provide full clickable hyperlinks (e.g. https://antheminfotech.com/contact-us) instead of just page names when directing users to any page  // ← ADD THIS
+// - When suggesting to contact the team, always include both the link AND phone/email together  // ← ADD THIS`;
 
+
+// // ── Build final system prompt with injected RAG context ───
+// function buildSystemPrompt(hits) {
+//   if (!hits || hits.length === 0) return BASE_SYSTEM_PROMPT;
+
+//   const context = hits
+//     .map(
+//       (h, i) =>
+//         `[${i + 1}] Q: ${h.question}\n    A: ${h.answer}`
+//     )
+//     .join("\n\n");
+
+//   return `${BASE_SYSTEM_PROMPT}
+
+// ──────────────────────────────────────
+// RELEVANT KNOWLEDGE BASE (from company Q&A database):
+// ${context}
+// ──────────────────────────────────────
+// Use the above entries to give accurate, specific answers. If the answer is there, use it directly.`;
+// }
+
+// // ── POST handler ───────────────────────────────────────────
 // export async function POST(req) {
 //   try {
 //     const { messages } = await req.json();
 
 //     if (!messages || !Array.isArray(messages)) {
-//       return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+//       return NextResponse.json(
+//         { error: "Invalid request body" },
+//         { status: 400 }
+//       );
 //     }
 
 //     const apiKey = process.env.ANTHROPIC_API_KEY;
 //     if (!apiKey) {
-//       return NextResponse.json({ error: "API key not configured" }, { status: 500 });
+//       return NextResponse.json(
+//         { error: "API key not configured" },
+//         { status: 500 }
+//       );
 //     }
 
+//     // ── RAG: find the user's latest message and search Qdrant
+//     const lastUserMsg = [...messages]
+//       .reverse()
+//       .find((m) => m.role === "user");
+
+//     const hits = lastUserMsg
+//       ? await searchQdrant(lastUserMsg.content, 3)
+//       : [];
+
+//     const systemPrompt = buildSystemPrompt(hits);
+
+//     // ── Call Claude ────────────────────────────────────────
 //     const response = await fetch("https://api.anthropic.com/v1/messages", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",
 //         "x-api-key": apiKey,
-//         "anthropic-version": "2023-06-01",   
+//         "anthropic-version": "2023-06-01",
 //       },
 //       body: JSON.stringify({
 //         model: "claude-sonnet-4-5",
 //         max_tokens: 1000,
-//         system: SYSTEM_PROMPT,
+//         system: systemPrompt,          // ← now includes RAG context
 //         messages: messages.map((m) => ({
 //           role: m.role,
 //           content: m.content,
@@ -95,44 +188,63 @@
 //       "Sorry, I couldn't generate a response. Please try again.";
 
 //     return NextResponse.json({ reply });
-//   } catch (error) 
-//   {
+//   } catch (error) {
 //     console.error("Chat API error:", error);
-//     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+//     return NextResponse.json(
+//       { error: "Internal server error" },
+//       { status: 500 }
+//     );
 //   }
 // }
 
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 import { NextResponse } from "next/server";
 import { QdrantClient } from "@qdrant/js-client-rest";
-import { pipeline } from "@xenova/transformers";
 
 // ── Qdrant client (singleton) ──────────────────────────────
 const qdrant = new QdrantClient({
   url: process.env.QDRANT_URL || "http://localhost:6333",
-  apiKey: process.env.QDRANT_API_KEY,          // undefined = local, fine
+  apiKey: process.env.QDRANT_API_KEY,
 });
 
 const COLLECTION = "anthem_qa";
 
-// ── Embedding model (lazy singleton) ──────────────────────
-let _embedder = null;
-async function getEmbedder() {
-  if (!_embedder) {
-    _embedder = await pipeline(
-      "feature-extraction",
-      "Xenova/all-MiniLM-L6-v2"
-    );
-  }
-  return _embedder;
-}
-
-// ── Embed a string → float[] ───────────────────────────────
+// ── Embed via Hugging Face Inference API ───────────────────
 async function embed(text) {
-  const embedder = await getEmbedder();
-  const out = await embedder(text, { pooling: "mean", normalize: true });
-  return Array.from(out.data);
+  const res = await fetch(
+    "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.HF_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        inputs: text,
+        options: { wait_for_model: true },
+      }),
+    }
+  );
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`HF embed failed ${res.status}: ${body}`);
+  }
+
+  const data = await res.json();
+
+  // HF returns different shapes depending on the model version — handle all:
+  // Shape A: [...vector]          (flat array of numbers)
+  // Shape B: [[...vector]]        (1 sentence → nested once)
+  // Shape C: [[[...vector]]]      (rare triple-nested)
+  if (Array.isArray(data[0])) {
+    if (Array.isArray(data[0][0])) return data[0][0]; // Shape C
+    return data[0];                                    // Shape B
+  }
+  return data;                                         // Shape A
 }
 
 // ── Qdrant semantic search → top-k Q&A hits ───────────────
@@ -143,12 +255,12 @@ async function searchQdrant(query, topK = 3) {
       vector,
       limit: topK,
       with_payload: true,
-      score_threshold: 0.45,   // ignore low-confidence matches
+      score_threshold: 0.45,
     });
     return results.map((r) => r.payload);
   } catch (err) {
     console.error("Qdrant search error:", err.message);
-    return [];   // graceful fallback — Claude still answers from system prompt
+    return []; // graceful fallback — Claude still answers from system prompt
   }
 }
 
@@ -199,23 +311,19 @@ BEHAVIOR GUIDELINES:
 - Be professional, warm, and concise
 - Keep replies to 2–4 sentences unless more detail is needed
 - Always encourage visitors to get in touch or request a quote for pricing
-- For pricing queries: explain it depends on project scope and guide them to /request-a-quote
+- For pricing queries: explain it depends on project scope and guide them to https://antheminfotech.com/request-a-quote
 - Mention real contact details (phone/email) when relevant
 - Never make up facts about the company not listed above
 - If RELEVANT KNOWLEDGE BASE entries are provided below, prioritize them in your answer
- - Always provide full clickable hyperlinks (e.g. https://antheminfotech.com/contact-us) instead of just page names when directing users to any page  // ← ADD THIS
-- When suggesting to contact the team, always include both the link AND phone/email together  // ← ADD THIS`;
+- Always provide full clickable hyperlinks (e.g. https://antheminfotech.com/contact-us) when directing users to any page
+- When suggesting to contact the team, always include both the link AND phone/email together`;
 
-
-// ── Build final system prompt with injected RAG context ───
+// ── Build final system prompt with injected RAG context ────
 function buildSystemPrompt(hits) {
   if (!hits || hits.length === 0) return BASE_SYSTEM_PROMPT;
 
   const context = hits
-    .map(
-      (h, i) =>
-        `[${i + 1}] Q: ${h.question}\n    A: ${h.answer}`
-    )
+    .map((h, i) => `[${i + 1}] Q: ${h.question}\n    A: ${h.answer}`)
     .join("\n\n");
 
   return `${BASE_SYSTEM_PROMPT}
@@ -233,32 +341,18 @@ export async function POST(req) {
     const { messages } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json(
-        { error: "Invalid request body" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
     }
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
-      return NextResponse.json(
-        { error: "API key not configured" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "API key not configured" }, { status: 500 });
     }
 
-    // ── RAG: find the user's latest message and search Qdrant
-    const lastUserMsg = [...messages]
-      .reverse()
-      .find((m) => m.role === "user");
-
-    const hits = lastUserMsg
-      ? await searchQdrant(lastUserMsg.content, 3)
-      : [];
-
+    const lastUserMsg = [...messages].reverse().find((m) => m.role === "user");
+    const hits = lastUserMsg ? await searchQdrant(lastUserMsg.content, 3) : [];
     const systemPrompt = buildSystemPrompt(hits);
 
-    // ── Call Claude ────────────────────────────────────────
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -269,11 +363,8 @@ export async function POST(req) {
       body: JSON.stringify({
         model: "claude-sonnet-4-5",
         max_tokens: 1000,
-        system: systemPrompt,          // ← now includes RAG context
-        messages: messages.map((m) => ({
-          role: m.role,
-          content: m.content,
-        })),
+        system: systemPrompt,
+        messages: messages.map((m) => ({ role: m.role, content: m.content })),
       }),
     });
 
@@ -293,9 +384,6 @@ export async function POST(req) {
     return NextResponse.json({ reply });
   } catch (error) {
     console.error("Chat API error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
