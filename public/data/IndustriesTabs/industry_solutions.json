@@ -1,0 +1,177 @@
+[
+    {
+      "id": 1,
+      "title": "Workforce Compliance Solutions",
+      "url": "/",
+      "highlights": [
+        "Compliance Tracking",
+        "Real-Time Reporting",
+        "Wage Verification",
+        "Training Modules",
+        "Risk Assessment",
+        "Financial Audit"
+      ],
+      "description": "We developed advanced workforce compliance solutions that enable efficient policy management, employee training, and risk assessment. Our tools offer real-time tracking and automated reporting to support regulatory compliance. By streamlining workflows and centralizing training processes, we help organizations maintain a fully compliant, well-trained workforce while improving overall operational efficiency and risk control.",
+      "image":"images/Industries/WorkforceComplianceSolutions.webp",
+      "relatedProductsID":[1,2,3,4]
+    },
+    {
+      "id": 2,
+      "title": "Publishing Rights Management",
+      "url": "/",
+      "highlights": [
+        "Digital Rights Management",
+        "Global Search",
+        "Content Protection",
+        "Content Extraction",
+        "Web Scraping",
+        "Real-Time Reporting"
+      ],
+      "description": "We delivered comprehensive publishing rights management solutions that streamline digital rights tracking, licensing workflows, and content protection. Our tools enable automated royalty calculations, secure content distribution, and compliance reporting to ensure creators receive fair compensation. By utilizing advanced technology and intelligent automation, we enable organizations to manage their creative assets efficiently while maintaining high standards of security and regulatory compliance.",
+      "image":"images/Industries/PublishingRightsManagement.webp",
+      "relatedProductsID":[5,6,7,8,9]
+    },
+    {
+      "id": 3,
+      "title": "Financial Audit Compliance",
+      "url": "/",
+      "highlights": [
+        "Real-Time Analytics",
+        "AI Market Predictions",
+        "Portfolio Management",
+        "Risk Assessment",
+        "Regulatory Compliance",
+        "Controls management"
+      ],
+      "description": "Our financial audit and advisory solutions empower organizations with accurate, data-driven insights to support informed decision-making. We deliver real-time analytics, AI-enhanced market forecasting, and robust portfolio management tools that improve financial performance. Our platforms facilitate comprehensive risk assessment, strengthen regulatory compliance, and streamline audit workflows by reducing manual efforts. By leveraging advanced automation and intelligent reporting, we enable financial teams to build trust, enhance operational efficiency, and achieve consistent, long-term growth.",
+      "image":"images/Industries/FinancialAuditCompliance.webp",
+      "relatedProductsID":[10,11,12,13,14,15]
+    },
+    {
+      "id": 4,
+      "title": "Food Ordering Solutions",
+      "url": "/",
+      "highlights": [
+        "Google Places API",
+        "Cart Management",
+        "Payment Gateway Integration",
+        "Assign Driver",
+        "Food Delivery"
+      ],
+      "description": "Our food ordering solutions deliver a fully integrated ecosystem that enhances every stage of the ordering and delivery experience. We provide seamless menu exploration, secure payment gateway integration, and efficient driver assignment to ensure timely deliveries. With intuitive interfaces and real-time tracking, customers enjoy a smooth and reliable ordering journey. For restaurant owners, our platforms offer powerful analytics, enabling them to optimize operations, refine menus, streamline delivery routes, and improve overall service quality.",
+      "image":"images/Industries/FoodOrderingSolutions.webp",
+      "relatedProductsID":[16,17,18,19,20,21]
+    },
+    {
+      "id": 5,
+      "title": "Information Technology Solutions",
+      "url": "/",
+      "highlights": [
+        "Custom Software",
+        "Cloud Management",
+        "Cybersecurity",
+        "IT Infrastructure",
+        "Digital Transformation"
+      ],
+      "description": "Our IT solutions empower businesses to accelerate digital transformation through scalable technology and secure infrastructure. We develop custom software tailored to operational needs, streamline cloud environments, and strengthen cybersecurity to safeguard organizational assets. With modern IT infrastructure and future-ready digital tools, we help companies optimize performance, improve resilience, and stay competitive in an evolving technological landscape.",
+      "image":"images/Industries/InformationTechnologySolutions.webp",
+      "relatedProductsID":[22,23,24,25,26,27]
+    },
+    {
+      "id": 6,
+      "title": "Business Promotion Solutions",
+      "url": "/",
+      "highlights": [
+        "Explainer Video",
+        "Product Demo Content",
+        "SMS Campaigns",
+        "PDF Generation",
+        "Social Wall",
+        "Web Site Content",
+        "Reviews & Ratings"
+      ],
+      "description": "We help businesses strengthen their brand visibility with smart and scalable promotion solutions. Our tools combine AI-driven insights, automated outreach, and multi-channel marketing to maximise engagement. From creating compelling product demos and explainer videos to managing reviews, SMS campaigns, and dynamic social walls, we enable brands to connect meaningfully with their audience. With real-time performance tracking and data-backed recommendations, our platforms ensure every campaign delivers measurable impact and long-term growth.",
+      "image":"images/Industries/BusinessPromotionSolutions.webp",
+      "relatedProductsID":[28,29,30,31,32,33]
+    },
+    {
+      "id": 7,
+      "title": "HOA Automation Solutions",
+      "url": "/",
+      "highlights": [
+        "Bulk Email",
+        "E-Voting System",
+        "Document Scanning",
+        "MICR Reading",
+        "Automated Notifications"
+      ],
+      "description": "Our HOA automation solutions modernise community management by simplifying routine tasks and enhancing transparency. We build systems that support bulk email communication, secure e-voting, and efficient document scanning to reduce manual effort. With advanced features like MICR-based data extraction and automated notification workflows, we help associations maintain smooth operations and timely communication. These tools enable organised governance, faster decision-making, and a more connected and compliant community environment.",
+      "image":"images/Industries/HOAAutomationSolutions.webp",
+      "relatedProductsID":[34,35,36]
+    },
+    {
+      "id": 8,
+      "title": "Logistics and Supply Chain Management",
+      "url": "/",
+      "highlights": [
+        "Fleet Management",
+        "Route Optimization",
+        "Real-Time Tracking",
+        "Predictive Analytics",
+        "AI-Driven Automation"
+      ],
+      "description": "We enhanced logistics and supply chain workflows by creating intelligent solutions that improve visibility, efficiency, and decision-making. Our platforms enable precise fleet management, smart route optimisation, and continuous real-time tracking for seamless operations. With predictive analytics and AI-powered automation, we help businesses cut operational costs, prevent disruptions, and streamline delivery processes. These advanced capabilities empower logistics teams to operate with greater accuracy, adaptability, and long-term reliability in a highly competitive market.",
+      "image":"images/Industries/Logistics.webp",
+      "relatedProductsID":[37,38,39,40]
+    },
+    {
+      "id": 9,
+      "title": "Construction Industry Software",
+      "url": "/",
+      "highlights": [
+        "Project Management",
+        "Cost Estimation",
+        "Real-Time Updates",
+        "Risk Management",
+        "AI-Powered Insights"
+      ],
+      "description": "We empowered construction firms with intelligent software systems designed to streamline project execution from planning to delivery. Our platforms enhanced scheduling, team coordination, and communication to keep every phase running smoothly and within budget. With tools for accurate cost estimation, comprehensive risk management, and real-time project visibility, companies gained stronger operational control. By integrating AI-driven insights, we enabled teams to minimise delays, reduce resource wastage, and achieve higher productivity throughout the construction lifecycle.",
+      "image":"images/Industries/ConstructionIndustrySoftware.webp",
+      "relatedProductsID":[41,42,43,44,45,46]
+    },
+    {
+      "id": 10,
+      "title": "Healthcare and Medical Solutions",
+      "url": "/",
+      "highlights": [
+        "Telemedicine",
+        "Appointment Scheduling",
+        "EHR Integration",
+        "AI Diagnostics",
+        "Remote Patient Monitoring"
+      ],
+      "description": "We deliver advanced healthcare technology solutions that improve patient care and optimize healthcare operations. Our platforms include telemedicine services, online appointment scheduling, and seamless EHR integration, helping medical providers manage workflows efficiently.Using AI-powered diagnostics and remote patient monitoring, we offer personalized treatment plans and support accurate clinical decision-making. Our solutions also streamline administrative tasks, reduce paperwork, and allow healthcare professionals to focus on providing quality care.From digital health management to innovative medical tools, our solutions empower healthcare organizations to enhance efficiency, improve patient outcomes, and embrace the future of digital healthcare.",
+      "image":"images/Industries/HealthCareSoftware.webp",
+      "relatedProductsID":[1,2,3,4,5,6]
+    },
+    {
+      "id": 11,
+      "title": "Tourism and Travel Solutions",
+      "url": "/",
+      "highlights": [
+        "Online Bookings",
+        "Virtual Tours",
+        "AI Diagnostics",
+         "AI Recommendations",
+         "AI Recommendations",
+        "Multilingual Support",
+        "Real-Time Updates",
+        "Reservation Management",
+        "API Integration"
+      ],
+      "description": "We provide innovative tourism and travel technology solutions that streamline booking processes, enhance itinerary planning, and improve customer engagement. Our platforms feature online bookings, virtual tours, AI-powered recommendations, and multilingual support to deliver an enriched travel experience.With real-time updates, reservation management, and API integration, we ensure seamless operations and secure transactions. Our solutions also provide valuable data analytics to optimize business performance. Partnering with us enables travel companies to create memorable experiences, increase bookings, and foster customer loyalty in today’s competitive tourism market.",
+      "image":"images/Industries/Tourism.webp",
+      "relatedProductsID":[7,8,9,10,11,13]
+    }
+  ]
+  

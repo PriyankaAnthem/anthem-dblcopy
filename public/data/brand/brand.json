@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "image": "images/our-clients/avtec.png"
+    },
+    {
+        "id": 2,
+        "image": "images/our-clients/besecure-solution-llp.png"
+    },
+    {
+        "id": 3,
+        "image": "images/our-clients/combo.png"
+    },
+    {
+        "id": 4,
+        "image": "images/our-clients/diversityace.webp"
+    },
+    {
+        "id": 5,
+        "image": "images/our-clients/fintrack.webp"
+    },
+    {
+        "id": 6,
+        "image": "images/our-clients/funding-connect.png"
+    }
+    ,
+    {
+        "id": 7,
+        "image": "images/our-clients/hcl.png"
+    },
+    {
+        "id": 8,
+        "image": "images/our-clients/hil.png"
+    },
+    {
+        "id": 9,
+        "image": "images/our-clients/iglonline.png"
+    },
+    {
+        "id": 10,
+        "image": "images/our-clients/kpmg.png"
+    }
+    ,
+    {
+        "id": 11,
+        "image": "images/our-clients/ongc-india.png"
+    }
+    ,
+    {
+        "id": 12,
+        "image": "images/our-clients/oyo-rooms.png"
+    }
+    ,
+    {
+        "id": 13,
+        "image": "images/our-clients/singh-tech-solutions.png"
+    }
+]

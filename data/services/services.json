@@ -1,0 +1,407 @@
+[
+  {
+    "id": 1,
+    "title": "Custom Software Development",
+    "introduction": "We build customised digital platforms crafted to match your specific business goals, helping you improve workflows and enhance operational efficiency.",
+    "key_services": [
+
+      {
+        "name": "Content Management System (CMS)",
+        "description": "Our CMS solutions provide seamless content management, enabling you to create, edit, and publish content effortlessly across platforms.",
+        "icon": "images/mega-menu/custom-software/Content.svg"
+      },
+      {
+        "name": "Business Process Management (BPM)",
+        "description": "We implement BPM systems to enhance your business workflows, improving productivity and operational efficiency.",
+        "icon": "images/mega-menu/custom-software/business-briefcase-thin.svg"
+      },
+      {
+        "name": "Human Resource Management (HRM)",
+        "description": "We design HRM systems that help businesses efficiently manage employee data, payroll, and performance.",
+        "icon": "images/mega-menu/custom-software/HumanResourceManagement.svg"
+      },
+      {
+        "name": "Inventory Management",
+        "description": "Our inventory management solutions ensure real-time tracking and seamless control over stock levels and supply chains.",
+        "icon": "images/mega-menu/custom-software/inventory.svg"
+      },
+            {
+        "name": "Customer Relationship Management (CRM)",
+        "description": "We develop CRM systems that streamline customer interactions, helping you build strong relationships and drive growth.",
+        "icon": "images/mega-menu/custom-software/customer-service-agent-thin.svg"
+      },
+      {
+        "name": "Financial Systems",
+        "description": "We provide robust financial systems to automate accounting, streamline budgeting, and improve financial reporting.",
+        "icon": "images/mega-menu/custom-software/financial-gain.svg"
+      },
+      {
+        "name": "Logistics Management",
+        "description": "Our logistics management solutions simplify the complexities of supply chains, enabling better tracking and on-time deliveries.",
+        "icon": "images/mega-menu/custom-software/truck.svg"
+      },
+      {
+        "name": "Supply Chain Management (SCM)",
+        "description": "We build SCM systems that integrate operations, allowing you to monitor and manage every aspect of your supply chain.",
+        "icon": "images/mega-menu/custom-software/supply-chain-optimization-02.svg"
+      }
+    ],
+    "why_choose_us": "Our scalable, performance-focused solutions evolve with your organisation and deliver consistent efficiency using modern, future-ready technology.",
+    "img": "images/bg/ph-Custom-Software.webp",
+    "video": "images/videos/WebDesign_tiny.mp4"
+  },
+  {
+    "id": 2,
+    "title": "Web & Mobile Apps",
+    "introduction": "Build high-performance, cross-platform digital applications that help you reach more users while ensuring a smooth and reliable experience across devices.",
+    "key_services": [
+      {
+        "name": "WordPress Websites",
+        "description": "We create custom WordPress websites that combine performance with easy content management, empowering your business online.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/wordpress-thin.svg"
+      },
+      {
+        "name": "iOS App Development",
+        "description": "Our iOS apps provide intuitive, high-performing solutions that cater to your users' evolving needs on Apple devices.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/iOSAppDevelopment.svg"
+      },
+      {
+        "name": "Android App Development",
+        "description": "We deliver scalable Android apps that offer a seamless experience across multiple devices, keeping user engagement high.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/android.svg"
+      },
+      {
+        "name": "Progressive Web Apps (PWA)",
+        "description": "We build PWAs that offer a mobile app experience within a web browser, ensuring fast loading times and offline capabilities.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/code.svg"
+      },
+      {
+        "name": "Hybrid App Development",
+        "description": "Our hybrid apps deliver the benefits of both native and web apps, making your digital solutions more accessible and cost-effective.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/app-developer.svg"
+      },
+      {
+        "name": "Performance Optimisation",
+        "description": "We optimise app and website performance, ensuring fast load times and an enhanced user experience across all platforms.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/performance.svg"
+      },
+      {
+        "name": "Web API Development",
+        "description": "We develop and integrate APIs that enable smooth communication between your web systems and external services.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/api.svg"
+      },
+      {
+        "name": "App Integration",
+        "description": "We provide seamless app integration, ensuring your systems deliver a unified, efficient experience.",
+        "icon": "images/mega-menu/Web-Mobile-Apps/windows.svg"
+      }
+    ],
+    "why_choose_us": "We create apps that are optimised for speed, usability, and engagement, delivering an intuitive interface that enhances the overall user journey.",
+    "img": "images/bg/ph-Web-Mobile-Apps.webp",
+    "video": "images/videos/webMobile_small.mp4"
+  },
+  {
+    "id": 5,
+    "title": "AI-Powered Solutions",
+    "introduction": "Transform your business with advanced AI solutions that boost creativity, automate workflows, and enhance customer engagement. Our AI-driven services, from intelligent content generation to predictive analytics, are tailored to your unique business needs.",
+    "key_services": [
+      {
+        "name": "Generative AI",
+        "description": "We leverage generative AI to create content such as images, text, and video, streamlining your business's creative processes.",
+        "icon": "images/mega-menu/AI-Powered-Solutions/file-ai.svg"
+      },
+      {
+        "name": "Chat GPT Integration",
+        "description": "Our ChatGPT integration services bring AI-powered conversational agents to your applications, enhancing customer service and engagement.",
+        "icon": "images/mega-menu/AI-Powered-Solutions/discussion.svg"
+      },
+      {
+        "name": "Predictive Analytics",
+        "description": "We use predictive analytics to help businesses forecast trends, optimise decision-making, and create personalised user experiences.",
+        "icon": "images/mega-menu/AI-Powered-Solutions/chart-multi-type.svg"
+      },
+      {
+        "name": "Computer Vision",
+        "description": "Our computer vision solutions automate the analysis of images and video, offering valuable insights for business intelligence.",
+        "icon": "images/mega-menu/AI-Powered-Solutions/technologist.svg"
+      },
+      {
+        "name": "Natural Language Processing (NLP)",
+        "description": "We implement NLP technologies that enable machines to understand and respond to human language for more effective interactions.",
+        "icon": "images/mega-menu/AI-Powered-Solutions/user-speaker.svg"
+      },
+      {
+        "name": "Machine Learning",
+        "description": "We develop machine learning models that continuously learn from your data, improving processes and decision-making over time.",
+        "icon": "images/mega-menu/AI-Powered-Solutions/DataExtraction.svg"
+      },
+      {
+        "name": "Deep Learning Models",
+        "description": "Our deep learning solutions tackle complex business problems using advanced AI algorithms, delivering intelligent, data-driven results.",
+        "icon": "images/mega-menu/AI-Powered-Solutions/AI-1.svg"
+      }
+    ],
+    "why_choose_us": "Our expertise in state-of-the-art AI technologies streamlines content creation, optimises customer interactions, and delivers data-driven insights, empowering your business for long-term growth and sustainable success.",
+    "img": "images/bg/ph-AI-ML-Development.webp",
+    "video": "images/videos/AIML.mp4"
+  },
+  {
+    "id": 6,
+    "title": "Marketing Automation",
+    "introduction": "Automate your marketing strategies with advanced AI-driven tools that boost engagement, optimise campaigns, and maximize ROI.",
+    "key_services": [
+      {
+        "name": "Email Campaigns",
+        "description": "Our email campaign solutions automate and personalise your outreach, boosting customer engagement and conversion rates.",
+        "icon": "images/mega-menu/Marketing-Automation/envelope-paper-email-thin.svg"
+      },
+      {
+        "name": "Social Media Automation",
+        "description": "We integrate tools that automate social media posts, optimise content scheduling, and enhance your online presence.",
+        "icon": "images/mega-menu/Marketing-Automation/share.svg"
+      },
+      {
+        "name": "Search Engine Optimisation (SEO)",
+        "description": "We improve your search engine rankings with expert SEO strategies, helping your business gain visibility and traffic.",
+        "icon": "images/mega-menu/Marketing-Automation/seo-marketing.svg"
+      },
+      {
+        "name": "Pay-Per-Click (PPC) Management",
+        "description": "Our PPC management services optimise your ad spend, increasing conversions while minimising cost per acquisition.",
+        "icon": "images/mega-menu/Marketing-Automation/one-finger-click.svg"
+      },
+      {
+        "name": "Content Management",
+        "description": "We streamline content creation and management, ensuring your marketing teams can publish and optimise content efficiently.",
+        "icon": "images/mega-menu/Marketing-Automation/Content.svg"
+      },
+      {
+        "name": "Analytics & Reporting",
+        "description": "Our automated reporting tools provide real-time insights, helping you refine strategies and accurately measure success.",
+        "icon": "images/mega-menu/Marketing-Automation/user-analytics.svg"
+      },
+      {
+        "name": "SMS Marketing",
+        "description": "We automate SMS campaigns that reach your audience instantly, driving engagement and conversions through timely messages.",
+        "icon": "images/mega-menu/Marketing-Automation/sms.svg"
+      },
+      {
+        "name": "CRM Integration",
+        "description": "We integrate CRM systems with marketing tools, ensuring customer data aligns with your outreach efforts.",
+        "icon": "images/mega-menu/Marketing-Automation/customer-service.svg"
+      }
+    ],
+    "why_choose_us": "We streamline and enhance your marketing campaigns to improve efficiency, performance, and deliver better measurable results.",
+    "img": "images/bg/ph-Marketing-Automation.webp",
+    "video": "images/videos/marketing_tiny.mp4"
+  },
+  {
+    "id": 7,
+    "title": "MVP Development",
+    "introduction": "Rapidly develop a Minimum Viable Product (MVP) to validate your business idea, gather user feedback, and test its market potential.",
+    "key_services": [
+      {
+        "name": "Prototyping",
+        "description": "We create detailed prototypes that help you visualise and test your product concept before full-scale development begins.",
+        "icon": "images/mega-menu/MVP-Development/circuit.svg"
+      },
+      {
+        "name": "UX/UI Design",
+        "description": "Our UX/UI design services ensure that your MVP delivers an intuitive and engaging user experience.",
+        "icon": "images/mega-menu/MVP-Development/user-interface.svg"
+      },
+      {
+        "name": "User Feedback Integration",
+        "description": "We enable fast user feedback loops, helping you iterate on your MVP based on real-world usage and customer insights.",
+        "icon": "images/mega-menu/MVP-Development/feedback2.svg"
+      },
+      {
+        "name": "Iterative Development",
+        "description": "We use agile methodologies to continuously develop and improve your MVP, responding quickly to feedback and market changes.",
+        "icon": "images/mega-menu/MVP-Development/design-and-development-02.svg"
+      },
+      {
+        "name": "Agile Development",
+        "description": "Our agile development process ensures fast delivery and continuous improvement of your MVP in response to evolving needs.",
+        "icon": "images/mega-menu/MVP-Development/agile.svg"
+      },
+      {
+        "name": "Testing & QA",
+        "description": "We provide thorough testing and quality assurance to ensure your MVP functions seamlessly, with minimal bugs and issues.",
+        "icon": "images/mega-menu/MVP-Development/jira.svg"
+      },
+      {
+        "name": "Launch Strategy",
+        "description": "We craft a strategic plan for launching your MVP, ensuring maximum visibility and user adoption in the market.",
+        "icon": "images/mega-menu/MVP-Development/launch.svg"
+      },
+      {
+        "name": "Performance Analytics",
+        "description": "We provide performance analytics to help you monitor and refine your MVP based on user data and system metrics.",
+        "icon": "images/mega-menu/MVP-Development/performance.svg"
+      }
+    ],
+    "why_choose_us": "We assist startups and enterprises to quickly launch, iterate, and refine products, ensuring faster time-to-market and achieving market fit efficiently.",
+    "img": "images/bg/ph-Custom-Software.webp",
+    "video": "images/videos/mvp-development_small.mp4"
+  },
+  {
+    "id": 8,
+    "title": "Enterprise Software",
+    "introduction": "Develop secure, scalable enterprise platforms that improve operational workflows, enhance productivity, and support large-scale data ecosystems.",
+    "key_services": [
+      {
+        "name": "Security Solutions",
+        "description": "We implement robust security systems, protecting your enterprise software from cyber threats and vulnerabilities.",
+        "icon": "images/mega-menu/Enterprise-Software/security.svg"
+      },  {
+        "name": "Database Management",
+        "description": "Our database management services ensure secure, scalable, and efficient data storage solutions for large enterprises.",
+        "icon": "images/mega-menu/Enterprise-Software/network-server-database.svg"
+      },
+      {
+        "name": "System Integration",
+        "description": "We integrate diverse systems into one unified platform, enhancing business operations and simplifying data management.",
+        "icon": "images/mega-menu/Enterprise-Software/integration.svg"
+      },
+      {
+        "name": "Analytics Platforms",
+        "description": "Our analytics solutions provide powerful insights into your data, helping drive decision-making and operational efficiencies.",
+        "icon": "images/mega-menu/Enterprise-Software/chart-multi-line.svg"
+      },
+      {
+        "name": "Compliance Management",
+        "description": "We develop compliance management systems that help businesses meet industry regulations and avoid costly legal challenges.",
+        "icon": "images/mega-menu/Enterprise-Software/get-ahead-of-risk-and-compliance.svg"
+      },
+      {
+        "name": "Workflow Automation",
+        "description": "We automate workflows to reduce manual tasks, increase productivity, and improve overall business operations.",
+        "icon": "images/mega-menu/Enterprise-Software/workflow-diagram.svg"
+      }
+    ],
+    "why_choose_us": "We build high-performance, future-ready enterprise solutions designed to strengthen security, boost efficiency, and support long-term organisational growth.",
+    "img": "images/bg/ph-Enterprise-Software.webp",
+    "video": "images/videos/EnterpriseSolutions_small.mp4"
+  },
+  {
+    "id": 9,
+    "title": "Data Analysis & ETL",
+    "introduction": "Empower your business with comprehensive data analysis, ETL pipelines, and custom analytics dashboards to enable smarter, data-driven decisions.",
+    "key_services": [
+      {
+        "name": "Data Extraction",
+        "description": "We provide efficient data extraction services, ensuring accurate and timely data retrieval from multiple sources.",
+        "icon": "images/mega-menu/Data-Analysis-ETL/DataExtraction.svg"
+      },
+      {
+        "name": "Data Transformation",
+        "description": "Our data transformation services ensure that raw data is converted into actionable formats that meet your business needs.",
+        "icon": "images/mega-menu/Data-Analysis-ETL/DataTransforming.svg"
+      },
+      {
+        "name": "Data Loading",
+        "description": "We automate the loading of transformed data into your systems, making it available for reporting and analytics.",
+        "icon": "images/mega-menu/Data-Analysis-ETL/Dataloading.svg"
+      },
+      {
+        "name": "Custom Dashboards",
+        "description": "We create interactive dashboards that provide real-time insights, helping you monitor and optimise business performance.",
+        "icon": "images/mega-menu/Data-Analysis-ETL/CustomDashboards.svg"
+      },
+      {
+        "name": "Business Intelligence",
+        "description": "Our business intelligence solutions turn raw data into valuable insights, empowering informed decision-making across departments.",
+        "icon": "images/mega-menu/Data-Analysis-ETL/BussinessIntelligence.svg"
+      },
+      {
+        "name": "Big Data Solutions",
+        "description": "We offer big data solutions that manage and analyse large datasets, enabling predictive analytics and strategic decisions.",
+        "icon": "images/mega-menu/Data-Analysis-ETL/database.svg"
+      },
+      {
+        "name": "Data Cleaning",
+        "description": "Our data cleaning services remove inconsistencies to ensure that your data is accurate, reliable, and ready for analysis.",
+        "icon": "images/mega-menu/Data-Analysis-ETL/DataCleaning.svg"
+      }
+    ],
+    "why_choose_us": "Our data-driven solutions help businesses unlock actionable insights, optimise operations, and make informed strategic decisions.",
+    "img": "images/bg/ph-Data-Analysis-ETL.webp",
+    "video": "images/videos/DataAnalyses_tiny.mp4"
+  },
+  {
+    "id": 10,
+    "title": "UI/UX Design",
+    "introduction": "Design intuitive, visually engaging user interfaces that enhance user experiences and increase engagement across web and mobile platforms.",
+    "key_services": [
+      {
+        "name": "Web Design",
+        "description": "We create stunning, responsive websites that offer an engaging user experience while meeting your business objectives.",
+        "icon": "images/mega-menu/UI-UX-Design/WebsiteDesignDevelopment.svg"
+      },
+      {
+        "name": "Mobile UI Design",
+        "description": "Our mobile UI design solutions prioritise ease of use, ensuring your apps provide a flawless user experience on all devices.",
+        "icon": "images/mega-menu/UI-UX-Design/Mobile-UI-Design.svg"
+      },
+      {
+        "name": "Prototyping",
+        "description": "We build detailed prototypes that help you test and refine user flows, interactions, and design elements before development.",
+        "icon": "images/mega-menu/UI-UX-Design/Prototyping.svg"
+      },
+      {
+        "name": "Brand Design",
+        "description": "Our design team ensures that your digital products reflect a consistent and impactful brand identity across all platforms.",
+        "icon": "images/mega-menu/UI-UX-Design/Brand-Design.svg"
+      },
+      {
+        "name": "Responsive Design",
+        "description": "We specialise in responsive design, ensuring your digital products adapt to different devices for a consistent user experience.",
+        "icon": "images/mega-menu/UI-UX-Design/Responsive.svg"
+      }
+    ],
+    "why_choose_us": "We provide expert, dedicated talent that delivers high-quality solutions, ensuring projects are executed seamlessly and on time.",
+    "img": "images/bg/ph-ui-ux.webp",
+    "video": "images/videos/UI-UX_tiny.mp4"
+  },
+  {
+    "id": 11,
+    "title": "On-Demand Dedicated Talent",
+    "introduction": "Access flexible, skilled professionals to accelerate your projects, scale efficiently, and meet dynamic business demands.",
+    "key_services": [
+      {
+        "name": "Dedicated Professionals",
+        "description": "Expert designers, developers, and other professionals are available fixed or hourly to support your project needs.",
+        "icon": "images/mega-menu/On-Demand-Dedicated-Talent/Dedicated-Developer.svg"
+      },
+      {
+        "name": "Remote Developers",
+        "description": "We offer remote developers, ensuring smooth collaboration and productivity across all time zones.",
+        "icon": "images/mega-menu/On-Demand-Dedicated-Talent/man-technologist.svg"
+      },
+      {
+        "name": "Rapid Hiring",
+        "description": "The quick deployment of developers to meet your requirements reduces downtime and accelerates progress.",
+        "icon": "images/mega-menu/On-Demand-Dedicated-Talent/connection-thin.svg"
+      },
+      {
+        "name": "Project-Specific Developers",
+        "description": "We provide tailored expertise for your unique project challenges, ensuring your goals are met with precision and industry knowledge.",
+        "icon": "images/mega-menu/On-Demand-Dedicated-Talent/woman-technologist.svg"
+      },
+      {
+        "name": "Long-Term Partnerships",
+        "description": "We foster long-term partnerships with developers, offering consistent support and expertise for your ongoing and future projects.",
+        "icon": "images/mega-menu/On-Demand-Dedicated-Talent/share-knowledge.svg"
+      },
+      {
+        "name": "End-to-End Support",
+        "description": "From initial development to completion, our comprehensive support ensures that your project is delivered on time.",
+        "icon": "images/mega-menu/On-Demand-Dedicated-Talent/people-dialogue.svg"
+      }
+    ],
+    "why_choose_us": "We provide expert, dedicated talent that delivers high-quality solutions, ensuring projects are executed seamlessly and on time.",
+    "img": "images/bg/OnDemand.webp",
+    "video": "images/videos/OnDemand_tiny.mp4"
+  }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "id": "1",
+        "title": "Innovative <span class='text-color-span'>Web & App</span> Solutions",
+        "desc": "Transform your digital presence with cutting-edge web and mobile app development tailored to your unique requirements.",
+        "backgroundImage": "/images/hero-image/Secure.webp"
+    },
+    {
+        "id": "2",
+        "title": "<span class='text-color-span'>Custom Software</span> to Automate Business Processes",
+        "desc": "Bespoke software solutions crafted to streamline operations and enhance your business efficiency.",
+        "backgroundImage": "/images/hero-image/Custom.webp"
+    },
+    {
+        "id": "3",
+        "title": "<span class='text-color-span'>On-Demand</span> Dedicated Talent",
+        "desc": "Access flexible, skilled professionals to accelerate your projects, scale efficiently, and meet dynamic business demands.",
+        "backgroundImage": "/images/hero-image/OnDemand.webp"
+    },
+    {
+        "id": "4",
+        "title": "<span class='text-color-span'>AI Solutions</span> for Modern Business",
+        "desc": "Harness the power of AI to drive innovation with bespoke machine learning and artificial intelligence solutions.",
+        "backgroundImage": "/images/hero-image/AI.webp"
+    }
+    ,
+    {
+        "id": "5",
+        "title": "Robust <span class='text-color-span'>Mobile App</span> Development",
+        "desc": "Cross-platform apps that deliver exceptional performance and user experience.",
+        "backgroundImage": "/images/hero-image/mobileapp.webp"
+    }
+    ,  
+    {
+        "id": "6",
+        "title": "Advanced <span class='text-color-span'>Generative AI</span>",
+        "desc": "Create unique content with our generative AI technologies, including text, images, and music.",
+        "backgroundImage": "/images/hero-image/GenerativeAI.webp"
+    }
+    ,  
+    {
+        "id": "7",
+        "title": "<span class='text-color-span'>Secure & Scalable</span> Software",
+        "desc": "Build robust, secure, and scalable software solutions designed to meet your industry-specific needs.",
+        "backgroundImage": "/images/hero-image/security.webp"
+    }
+]

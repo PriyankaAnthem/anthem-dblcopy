@@ -1,0 +1,183 @@
+{
+  "Header": {
+    "title": "Trust, Commitment & Delivery",
+    "paragraph": "At our company, we embody the core values of Trust, Commitment, and Delivery in everything we do. Trust is the cornerstone of our relationships with clients and partners, built through transparent communication and integrity in our actions. Our unwavering Commitment drives us to exceed expectations, consistently delivering exceptional results and service. With a focus on Delivery, we ensure that promises made are promises kept, meeting deadlines and quality standards with precision and dedication. Together, these principles form the foundation of our success, guiding us towards excellence in every endeavor."
+  },
+  "About": {
+    "paragraph": "We have been working in the industry since 2011. We are specialized mainly in Microsoft technologies (Asp.net/ Asp.net MVC/ Asp.net Core/ MS SQL Server/ .Net Framework / Azure / C#.Net). We thrive on building Enterprise Solutions, Software Products, B2B applications and lot more that help people and businesses to compete and perform better. Our approach is to understand requirements thoroughly, ask the suitable questions to prepare best plan, executing it in timely manner with customer feedback and to produce a best solution.",
+    "Why": [
+      "Lorem ipsum dolor",
+      "Tempor incididunt",
+      "Lorem ipsum dolor",
+      "Incididunt ut labore"
+    ],
+    "Why2": [
+      "Aliquip ex ea commodo",
+      "Lorem ipsum dolor",
+      "Exercitation ullamco",
+      "Lorem ipsum dolor"
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/01-large.webp",
+      "smallImage": "img/portfolio/01-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/02-large.webp",
+      "smallImage": "img/portfolio/02-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/03-large.webp",
+      "smallImage": "img/portfolio/03-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/04-large.webp",
+      "smallImage": "img/portfolio/04-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/05-large.webp",
+      "smallImage": "img/portfolio/05-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/06-large.webp",
+      "smallImage": "img/portfolio/06-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/07-large.webp",
+      "smallImage": "img/portfolio/07-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/08-large.webp",
+      "smallImage": "img/portfolio/08-small.webp"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/09-large.webp",
+      "smallImage": "img/portfolio/09-small.webp"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-code fa-4x",
+      "name": "Website Design & Development",
+      "image": "/img/website_design.jpg",
+      "text": "hello"
+    },
+    {
+      "icon": "fa fa-laptop fa-3x",
+      "name": "Custom Software & Development"
+    },
+    {
+      "icon": "fa fa-cogs fa-3x",
+      "name": "Web Software Maintenance"
+    },
+    {
+      "icon": "fa fa-lightbulb-o fa-3x",
+      "name": "Digital Marketing (SEO)"
+    },
+    {
+      "icon": "fa fa-globe fa-3x ",
+      "name": "Mobile App & Development"
+    },
+    {
+      "icon": "fa fa-paint-brush fa-3x",
+      "name": "UI/UX Designing"
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/04.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    },
+    {
+      "img": "img/testimonials/05.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/06.jpg",
+      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "name": "Johnathan Doe"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.webp",
+      "name": "John Doe",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.webp",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.webp",
+      "name": "Jane Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.webp",
+      "name": "Karen Doe",
+      "job": "Project Manager"
+    }
+  ],
+  "Contact": {
+    "address": "#11, Floor 11, Sushma Infinium, Chandigarh - Ambala Highway, Near Best Price Zirakpur, Punjab – 140603 India.",
+    "phone": "+91 9815-34-0123",
+    "email": " info@antheminfotech.com",
+    "facebook": "https://www.facebook.com/AnthemInfotech",
+    "twitter": "https://twitter.com/antheminfotech",
+    "linkdIn": "https://www.linkedin.com/company/anthem-infotech-pvt-ltd-",
+    "gplus": "https://plus.google.com/+Antheminfotechindia/posts",
+    "whatsapp": "https://wa.me/919815340123/?text=Hi Anthem Team."
+  },
+
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    }
+  ]
+}

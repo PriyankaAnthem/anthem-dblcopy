@@ -1,0 +1,178 @@
+/* Industries.css */
+.larger-icon {
+  font-size: 36px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.larger-name {
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.larger-icon:hover {
+  transform: scale(1.4);
+}
+/* IndustryPage.css */
+.industry-page-container {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+.additional-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.additional-info-card {
+  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+/* Industries.css */
+
+.selected .industry-icon {
+  transform: scale(1.2);
+}
+
+.selected-industry-name {
+  color: red;
+  border-bottom: 2px solid red;
+}
+.selected-industry {
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+}
+.industry-content {
+  text-align: left;
+  margin-top: 20px;
+  color: black;
+}
+
+.industry-content > div {
+  margin-bottom: 10px;
+}
+@keyframes iconHoverEffect {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1.1) translateX(5px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
+
+.industry-icon:hover {
+  animation: iconHoverEffect 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#features.slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+@keyframes example {
+  from {
+    top: 200px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+.animate-heading {
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  font-size: 6vw;
+}
+#parallax-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.parallax-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.parallax-header h2 {
+  color: black;
+  margin: 0;
+}
+
+.parallax-image {
+  position: relative;
+  height: 400px;
+}
+
+.parallax-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0033c780;
+  z-index: 1;
+}
+
+.parallax-image img {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-out;
+}
+
+#portfolio {
+  padding-top: 10px;
+  z-index: 1;
+}
+.social-icon {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "image": "/images/testimonial/90/author-1.png",
+        "desc": "We have worked with Anthem Infotech for over two years. They are competent, proactive, and timely. They provide daily updates, ask great questions, and provide excellent solutions. In addition, they have been willing to work overtime as needed to meet tough deadlines. I highly recommend them.",
+        "name": "Mark Traynor",
+        "position": "CTO & Co-Founder - DropCap Rights Agency & Dropcap Marketplace"
+    },
+    {
+        "id": 2,
+        "image": "/images/testimonial/90/author-2.png",
+        "desc": "I worked with Hemant and Team on complex Java and Nodejs projects processing Healthcare data files. Hemant and Team is very talented and quickly understands issues during testing and quickly finds solutions to complex requirements.",
+        "name": "Ryan Weihler",
+        "position": "President - Weihler Consulting Group"
+    },
+    {
+        "id": 3,
+        "image": "/images/testimonial/90/author-3.png",
+        "desc": "I have been Working with Anthem Infotech Pvt Ltd for over 4 years has been an outstanding experience. The team is incredibly creative, consistently delivering innovative and custom solutions to our specific requirements. We have build multiple POC applications that later became full-blown products, Their focus on quality is unmatched, and their reliability makes them a trusted partner. Highly recommended!",
+        "name": "Farshad Farhand (USA)",
+        "position": "Head of Technology Grpsys LLP"
+    }
+]

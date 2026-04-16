@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "icon": "/images/svg/linea/linea-software-box-polygon.svg",
+        "title": "Custom Software",
+        "desc": "Tailor-made software solutions to optimise business operations and address industry challenges, ensuring efficiency and scalability.",
+        "link": "/Home/Custom-Software"
+    },
+    {
+        "id": "2",
+        "icon": "/images/svg/linea/linea-basic-target.svg",
+        "title": "Web & Mobile Apps",
+        "desc": "Build responsive, high-performance web and mobile apps that are finely crafted to deliver seamless platform experiences.",
+        "link": "/Home/Web-Mobile-Apps"
+    },
+    {
+        "id": "3",
+        "icon": "/images/svg/linea/linea-basic-display.svg",
+        "title": "Enterprise Software",
+        "desc": "Develop scalable, secure enterprise software that enhances business operations and supports large-scale data management and integration.",
+        "link": "/Home/Enterprise-Software"
+    },
+    {
+        "id": "4",
+        "icon": "/images/svg/linea/linea-basic-gear.svg",
+        "title": "AI-Powered Solutions",
+        "desc": "AI solutions that automate processes and improve customer interactions from content creation to predictive analytics requirements.",
+        "link": "/Home/AI-Powered-Solutions"
+    },
+    {
+        "id": "6",
+        "icon": "/images/svg/linea/linea-basic-display.svg",
+        "title": "Data Analysis & ETL",
+        "desc": "Deliver comprehensive data analysis, ETL processes, and custom dashboards to empower data-driven decision-making and insights.",
+        "link": "/Home/Data-Analysis-ETL"
+    },
+    {
+        "id": "7",
+        "icon": "/images/svg/linea/linea-ecommerce-cart-plus.svg",
+        "title": "Marketing Automation",
+        "desc": "Automate marketing workflows to boost lead generation, streamline campaigns, and enhance customer engagement.",
+        "link": "/Home/Marketing-Automation"
+    },
+    {
+        "id": "8",
+        "icon": "/images/svg/linea/linea-basic-display.svg",
+        "title": "UI/UX Design",
+        "desc": "Create intuitive, visually appealing UI/UX designs that enhance user experiences and drive engagement across digital platforms..",
+        "link": "/Home/UI-UX-Design"
+    },
+    {
+        "id": "10",
+        "icon": "/images/svg/linea/linea-basic-display.svg",
+        "title": "MVP Development",
+        "desc": "Develop a Minimum Viable Product (MVP) to test, validate, and refine your idea in the market, ensuring rapid feedback and agile iteration.",
+        "link": "/Home/MVP-Development"
+    } 
+]

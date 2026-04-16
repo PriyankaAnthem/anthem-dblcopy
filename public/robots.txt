@@ -1,0 +1,15 @@
+# robots.txt for Anthem Infotech
+# https://antheminfotech.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://antheminfotech.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
