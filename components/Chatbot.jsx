@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -25,39 +27,11 @@ function parseMarkdown(text) {
   return text
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
-    .replace(/`(.*?)`/g, "<code style=\"background:#e0e7ff;color:#4338ca;padding:1px 5px;border-radius:4px;font-size:12px;\">$1</code>")
+    .replace(
+      /`(.*?)`/g,
+      '<code style="background:#e0e7ff;color:#4338ca;padding:1px 5px;border-radius:4px;font-size:12px;">$1</code>'
+    )
     .replace(/\n/g, "<br/>");
-}
-
-// ── Bot Avatar ────────────────────────────────────────────────────────────────
-function BotAvatar({ size = "sm" }) {
-  const dim = size === "md" ? 40 : 28;
-  return (
-    <div
-      style={{
-        width: dim,
-        height: dim,
-        borderRadius: "50%",
-      
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexShrink: 0,
-        boxShadow: "0 2px 8px rgba(99,102,241,0.3)",
-        overflow: "hidden",
-      }}
-    >
-      <img
-        src="/images/chatbot.webp"
-        alt="Anthem"
-        style={{ width: "80%", height: "80%", objectFit: "contain", }}
-        onError={(e) => {
-          e.target.style.display = "none";
-          e.target.parentNode.innerHTML = `<span style="color:white;font-size:${size === "md" ? 12 : 8}px;font-weight:700;">AI</span>`;
-        }}
-      />
-    </div>
-  );
 }
 
 // ── Thinking Dots ─────────────────────────────────────────────────────────────
@@ -118,6 +92,7 @@ function MessageBubble({ message }) {
             lineHeight: 1.65,
             wordBreak: "break-word",
             boxShadow: "0 2px 12px rgba(99,102,241,0.25)",
+            fontFamily: '"Open Sans", sans-serif',
           }}
           dangerouslySetInnerHTML={{ __html: parseMarkdown(message.content) }}
         />
@@ -127,19 +102,18 @@ function MessageBubble({ message }) {
 
   return (
     <div style={{ display: "flex", alignItems: "flex-end", gap: 8, animation: "anthemSlideUp 0.3s ease" }}>
-      <BotAvatar size="sm" />
       <div
         className="anthem-msg-bot"
         style={{
           maxWidth: "78%",
           padding: "10px 14px",
           borderRadius: "18px 18px 18px 4px",
-          background: "#f1f5f9",
           color: "#1e293b",
           fontSize: 13,
           lineHeight: 1.65,
           wordBreak: "break-word",
           border: "1px solid #e2e8f0",
+          fontFamily: '"Open Sans", sans-serif',
         }}
         dangerouslySetInnerHTML={{ __html: parseMarkdown(message.content) }}
       />
@@ -153,11 +127,18 @@ export default function Chatbot() {
   const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [hasNotification, setHasNotification] = useState(true);
+  const [hasNotification, setHasNotification] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
   const messagesContainerRef = useRef(null);
+
+  // ── Fix hydration error: only render client-side state after mount
+  useEffect(() => {
+    setIsMounted(true);
+    setHasNotification(true);
+  }, []);
 
   useEffect(() => {
     if (messagesContainerRef.current) {
@@ -192,7 +173,8 @@ export default function Chatbot() {
 
       try {
         const allMessages = [...messages, userMessage];
-        const response = await fetch("/api/chat", {
+        const API_URL = process.env.NEXT_PUBLIC_CHAT_API_URL;
+        const response = await fetch(`${API_URL}/api/chat`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -235,9 +217,14 @@ export default function Chatbot() {
 
   const canSend = input.trim().length > 0 && !isLoading;
 
+  // ── Prevent SSR/client mismatch (fixes React hydration error #418)
+  if (!isMounted) return null;
+
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+
         @keyframes anthemSlideUp {
           from { opacity: 0; transform: translateY(8px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -255,17 +242,28 @@ export default function Chatbot() {
           50%      { transform: translateY(-4px); }
         }
 
+        // .anthem-chat-wrapper {
+        //   position: fixed !important;
+        //   bottom: 28px !important;
+        //   right: 28px !important;
+        //   z-index: 99999 !important;
+        //   display: flex !important;
+        //   flex-direction: column !important;
+        //   align-items: flex-end !important;
+        //   gap: 12px !important;
+        //   pointer-events: none !important;
+        //   font-family: "Open Sans", sans-serif !important;
+        // }
+
         .anthem-chat-wrapper {
-          position: fixed !important;
-          bottom: 28px !important;
-          right: 28px !important;
-          z-index: 99999 !important;
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: flex-end !important;
-          gap: 12px !important;
-          pointer-events: none !important;
-        }
+  position: fixed !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  pointer-events: none !important;
+  font-family: "Open Sans", sans-serif !important;
+}
         .anthem-chat-wrapper > * {
           pointer-events: all !important;
         }
@@ -290,7 +288,6 @@ export default function Chatbot() {
         .anthem-pulse { animation: anthemPulse 2.4s ease-in-out infinite !important; }
         .anthem-window { animation: anthemWindowIn 0.32s cubic-bezier(0.34,1.4,0.64,1) forwards; }
 
-        /* Scrollable message area — the critical fix */
         .anthem-messages-scroll {
           flex: 1 1 0 !important;
           min-height: 0 !important;
@@ -311,20 +308,25 @@ export default function Chatbot() {
         .anthem-textarea {
           flex: 1;
           resize: none;
-          font-family: inherit;
+          font-family: "Open Sans", sans-serif;
           font-size: 13px;
           line-height: 1.5;
           color: #1e293b;
           background: #f8fafc;
           border: 1.5px solid #e2e8f0;
           border-radius: 14px;
-          padding: 10px 14px;
-          max-height: 96px;
-          overflow-y: auto;
+          padding: 6px 12px;
+          max-height:60px;
+          min-height: 45px; 
+          overflow-y: hidden;
           caret-color: #6366f1;
           transition: border-color 0.2s ease, box-shadow 0.2s ease;
           outline: none;
         }
+
+
+      
+}
         .anthem-textarea:focus {
           border-color: #6366f1 !important;
           background: #fafbff !important;
@@ -342,7 +344,7 @@ export default function Chatbot() {
           cursor: pointer;
           white-space: nowrap;
           transition: all 0.15s ease;
-          font-family: inherit;
+          font-family: "Open Sans", sans-serif;
           font-weight: 500;
         }
         .anthem-quick-btn:hover:not(:disabled) {
@@ -380,198 +382,291 @@ export default function Chatbot() {
           transition: all 0.15s ease !important;
           padding: 0 !important;
           flex-shrink: 0 !important;
-          border: 1.5px solid rgba(255,255,255,0.3) !important;
-          background: rgba(255,255,255,0.15) !important;
+          border: 1.5px solid #e2e8f0 !important;
+          background: rgba(0,0,0,0.04) !important;
           outline: none !important;
         }
-        .anthem-close-btn:hover { background: rgba(255,255,255,0.28) !important; }
+        .anthem-close-btn:hover { background: rgba(0,0,0,0.08) !important; }
 
         /* Markdown styling inside bubbles */
         .anthem-msg-bot strong  { color: #4338ca; font-weight: 600; }
         .anthem-msg-bot em      { color: #6366f1; font-style: italic; }
         .anthem-msg-user strong { color: #e0e7ff; font-weight: 600; }
         .anthem-msg-user em     { color: #c7d2fe; font-style: italic; }
-      `}</style>
+        .anthem-msg-bot a       { color: #4f46e5; text-decoration: underline; font-weight: 500; }
+        .anthem-msg-bot a:hover { color: #4338ca; }
+        .anthem-msg-user a      { color: #e0e7ff; text-decoration: underline; }
+        .anthem-msg-user a:hover { color: #ffffff; }
 
-      <div className="anthem-chat-wrapper">
+/* 📱 Mobile Responsive Fix */
+@media (max-width: 768px) {
+  .anthem-chat-wrapper {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    transform: none !important;
+    align-items: stretch !important;
+    justify-content: flex-end !important;
+  }
 
-        {/* ── Chat Window ── */}
-        {isOpen && (
-          <div
-            className="anthem-window"
+  .anthem-window {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .anthem-messages-scroll {
+    padding: 12px !important;
+  }
+
+  .anthem-textarea {
+    font-size: 14px !important;
+  }
+
+  /* Hide floating button when chat is open on mobile */
+  .anthem-toggle-btn {
+    position: fixed !important;
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+
+  .anthem-window + .anthem-toggle-btn {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+      `}
+      
+      
+      
+      
+      
+      
+      </style>
+
+      <>
+  {/* Overlay */}
+  {isOpen && (
+    <div
+      onClick={() => setIsOpen(false)}
+      style={{
+        position: "fixed",
+        inset: 0,
+        background: "rgba(0,0,0,0.3)",
+        zIndex: 99998,
+      }}
+    />
+  )}
+
+  <div
+    className="anthem-chat-wrapper"
+    style={{
+      ...(isOpen
+        ? {
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            alignItems: "center",
+          }
+        : {
+            bottom: "28px",
+            right: "28px",
+            alignItems: "flex-end",
+          }),
+    }}
+  >
+
+    {/* ── Chat Window ── */}
+    {isOpen && (
+      <div
+        className="anthem-window"
+        onClick={(e) => e.stopPropagation()} // ✅ prevent close on inside click
+        // style={{
+        //   width: 720,
+        //   height: 540,
+        //   display: "flex",
+        //   flexDirection: "column",
+        //   background: "#ffffff",
+        //   borderRadius: 24,
+        //   border: "1px solid #e2e8f0",
+        //   boxShadow:
+        //     "0 20px 60px rgba(0,0,0,0.12), 0 4px 20px rgba(99,102,241,0.1)",
+        //   overflow: "hidden",
+        // }}
+
+        style={{
+  width: "720px",
+  height: "540px",
+  maxWidth: "100%",
+  maxHeight: "100%",
+  display: "flex",
+  flexDirection: "column",
+  background: "#ffffff",
+  borderRadius: 24,
+  border: "1px solid #e2e8f0",
+  boxShadow:
+    "0 20px 60px rgba(0,0,0,0.12), 0 4px 20px rgba(99,102,241,0.1)",
+  overflow: "hidden",
+}}
+      >
+        {/* Header */}
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "10px 14px",
+            background: "#ffffff",
+            borderBottom: "1px solid #e2e8f0",
+            flexShrink: 0,
+          }}
+        >
+          <img
+            src="/images/logo/logo.webp"
+            alt="Anthem Infotech"
             style={{
-              width: 360,
-              height: 540,
-              display: "flex",
-              flexDirection: "column",
-              background: "#ffffff",
-              borderRadius: 24,
-              border: "1px solid #e2e8f0",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.12), 0 4px 20px rgba(99,102,241,0.1)",
-              overflow: "hidden",
+              height: 36,
+              width: "auto",
+              maxWidth: "calc(100% - 50px)",
+              objectFit: "contain",
+              objectPosition: "left center",
+              display: "block",
+            }}
+          />
+
+         
+
+          <button
+            className="anthem-close-btn"
+            onClick={() => setIsOpen(false)}
+          >
+            <CloseIcon color="#64748b" />
+          </button>
+        </div>
+
+        {/* Messages */}
+        <div
+          ref={messagesContainerRef}
+          className="anthem-messages-scroll"
+        >
+          {messages.map((msg) => (
+            <MessageBubble key={msg.id} message={msg} />
+          ))}
+
+          {isLoading && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <div
+                style={{
+                  padding: "10px 14px",
+                  borderRadius: "18px 18px 18px 4px",
+                  background: "#f1f5f9",
+                  border: "1px solid #e2e8f0",
+                }}
+              >
+                <ThinkingDots />
+              </div>
+            </div>
+          )}
+
+          <div ref={bottomRef} />
+        </div>
+
+        {/* Quick Prompts */}
+        <div
+          style={{
+            display: "flex",
+            gap: 6,
+            flexWrap: "wrap",
+            padding: "10px 14px 6px",
+            borderTop: "1px solid #f1f5f9",
+            background: "#fafbff",
+          }}
+        >
+          {QUICK_PROMPTS.map((prompt) => (
+            <button
+              key={prompt}
+              onClick={() => sendMessage(prompt)}
+              disabled={isLoading}
+              className="anthem-quick-btn"
+            >
+              {prompt}
+            </button>
+          ))}
+        </div>
+
+        {/* Input */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            gap: 8,
+            padding: "10px 14px 14px",
+            background: "#ffffff",
+            borderTop: "1px solid #f1f5f9",
+          }}
+        >
+          <textarea
+            ref={inputRef}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onInput={handleTextareaInput}
+            placeholder="Type your message..."
+            rows={1}
+            className="anthem-textarea"
+          />
+
+          <button
+            onClick={() => sendMessage()}
+            disabled={!canSend}
+            className="anthem-send-btn"
+            style={{
+              background: canSend
+                ? "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)"
+                : "#f1f5f9",
             }}
           >
-            {/* Header */}
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              padding: "14px 16px",
-              background: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
-              flexShrink: 0,
-            }}>
-              <BotAvatar size="md" />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ margin: 0, color: "white", fontWeight: 600, fontSize: 14, letterSpacing: "0.01em" }}>
-                  Anthem Assistant
-                </p>
-                <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 2 }}>
-                  <span style={{
-                    width: 6, height: 6, borderRadius: "50%",
-                    background: "#4ade80", display: "inline-block",
-                    boxShadow: "0 0 6px #4ade80",
-                  }} />
-                  <span style={{ color: "rgba(255,255,255,0.8)", fontSize: 11 }}>
-                    Online · Anthem Infotech
-                  </span>
-                </div>
-              </div>
-              <button className="anthem-close-btn" onClick={() => setIsOpen(false)} aria-label="Close chat">
-                <CloseIcon color="white" />
-              </button>
-            </div>
-
-            {/* Messages — scrollable */}
-            <div ref={messagesContainerRef} className="anthem-messages-scroll">
-              {messages.map((msg) => (
-                <MessageBubble key={msg.id} message={msg} />
-              ))}
-              {isLoading && (
-                <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
-                  <BotAvatar size="sm" />
-                  <div style={{
-                    padding: "10px 14px",
-                    borderRadius: "18px 18px 18px 4px",
-                    background: "#f1f5f9",
-                    border: "1px solid #e2e8f0",
-                  }}>
-                    <ThinkingDots />
-                  </div>
-                </div>
-              )}
-              <div ref={bottomRef} />
-            </div>
-
-            {/* Quick Prompts */}
-            <div style={{
-              display: "flex",
-              gap: 6,
-              flexWrap: "wrap",
-              padding: "10px 14px 6px",
-              borderTop: "1px solid #f1f5f9",
-              background: "#fafbff",
-              flexShrink: 0,
-            }}>
-              {QUICK_PROMPTS.map((prompt) => (
-                <button
-                  key={prompt}
-                  onClick={() => sendMessage(prompt)}
-                  disabled={isLoading}
-                  className="anthem-quick-btn"
-                >
-                  {prompt}
-                </button>
-              ))}
-            </div>
-
-            {/* Input */}
-            <div style={{
-              display: "flex",
-              alignItems: "flex-end",
-              gap: 8,
-              padding: "10px 14px 14px",
-              background: "#ffffff",
-              borderTop: "1px solid #f1f5f9",
-              flexShrink: 0,
-            }}>
-              <textarea
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                onInput={handleTextareaInput}
-                placeholder="Type your message..."
-                rows={1}
-                className="anthem-textarea"
-              />
-              <button
-                onClick={() => sendMessage()}
-                disabled={!canSend}
-                className="anthem-send-btn"
-                style={{
-                  background: canSend
-                    ? "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)"
-                    : "#f1f5f9",
-                  boxShadow: canSend ? "0 2px 8px rgba(99,102,241,0.35)" : "none",
-                }}
-                aria-label="Send message"
-              >
-                <SendIcon active={canSend} />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* ── Toggle Button — Anthem Logo ── */}
-        <button
-          onClick={() => setIsOpen((v) => !v)}
-          className={`anthem-toggle-btn ${!isOpen ? "anthem-pulse" : ""}`}
-          style={{
-            background: isOpen
-              ? "#f1f5f9"
-              : "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
-            boxShadow: isOpen
-              ? "0 2px 12px rgba(0,0,0,0.1)"
-              : "0 8px 28px rgba(99,102,241,0.45)",
-          }}
-          aria-label={isOpen ? "Close chat" : "Open chat"}
-        >
-          {isOpen ? (
-            <CloseIcon color="#64748b" />
-          ) : (
-            <img
-              src="/images/chatbot.webp"
-              alt="Anthem AI"
-              style={{
-                width: 34,
-                height: 34,
-                objectFit: "contain",
-                borderRadius: "50%",
-              
-              }}
-              onError={(e) => {
-                e.target.style.display = "none";
-                e.target.insertAdjacentHTML("afterend", `<span style="color:white;font-size:11px;font-weight:700;letter-spacing:0.04em;">AI</span>`);
-              }}
-            />
-          )}
-
-          {/* Notification dot */}
-          {hasNotification && !isOpen && (
-            <span style={{
-              position: "absolute",
-              top: 3,
-              right: 3,
-              width: 11,
-              height: 11,
-              borderRadius: "50%",
-              background: "#ef4444",
-              border: "2px solid white",
-            }} />
-          )}
-        </button>
-
+            <SendIcon active={canSend} />
+          </button>
+        </div>
       </div>
+    )}
+
+    {/* Toggle Button */}
+    <button
+      onClick={() => setIsOpen((v) => !v)}
+      className={`anthem-toggle-btn ${!isOpen ? "anthem-pulse" : ""}`}
+      style={{
+        background: isOpen
+          ? "#f1f5f9"
+          : "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
+      }}
+    >
+      {isOpen ? (
+        <CloseIcon color="#64748b" />
+      ) : (
+        <img
+          src="/images/chatbot.webp"
+          alt="AI"
+          style={{ width: 34, height: 34 }}
+        />
+      )}
+    </button>
+
+  </div>
+</>
     </>
   );
 }
