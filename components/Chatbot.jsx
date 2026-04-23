@@ -23,17 +23,54 @@ const INITIAL_MESSAGE = {
 };
 
 // ── Markdown Parser ───────────────────────────────────────────────────────────
+// function parseMarkdown(text) {
+//   return text
+//     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+//     .replace(/\*(.*?)\*/g, "<em>$1</em>")
+//     .replace(
+//       /`(.*?)`/g,
+//       '<code style="background:#e0e7ff;color:#4338ca;padding:1px 5px;border-radius:4px;font-size:12px;">$1</code>'
+//     )
+//     .replace(/\n/g, "<br/>");
+// }
 function parseMarkdown(text) {
   return text
+    // Strip ```json or ``` code fences if Claude sneaks them in
+    .replace(/^```[\w]*\n?/gm, "")
+    .replace(/```$/gm, "")
+    // Claude's __text__ link format → bold (no URL available)
+    .replace(/__(.*?)__/g, "<strong>$1</strong>")
+    // Bold
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+    // Italic (only if not inside a word, to avoid breaking URLs)
+    .replace(/(?<!\w)\*(?!\s)(.*?)(?<!\s)\*(?!\w)/g, "<em>$1</em>")
+    // Inline code
     .replace(
       /`(.*?)`/g,
       '<code style="background:#e0e7ff;color:#4338ca;padding:1px 5px;border-radius:4px;font-size:12px;">$1</code>'
     )
+    // Clickable links: [text](url) — must come BEFORE bare URL rule
+    .replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;text-decoration:underline;font-weight:500;">$1</a>'
+    )
+    // Bare URLs (not already inside an href)
+    .replace(
+      /(?<!href=")(https?:\/\/[^\s<"]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;text-decoration:underline;font-weight:500;">$1</a>'
+    )
+    // Bullet points: lines starting with •
+    .replace(
+      /(^|\n)(•\s.*?)(?=\n|$)/g,
+      '$1<div style="display:flex;gap:6px;margin:3px 0;"><span style="color:#6366f1;flex-shrink:0;">•</span><span>$2</span></div>'
+    )
+    // Clean up the raw • from the bullet text after wrapping
+    .replace(/<span>• /g, "<span>")
+    // Double newlines → paragraph break
+    .replace(/\n\n/g, '<div style="height:8px"></div>')
+    // Single newlines → line break
     .replace(/\n/g, "<br/>");
 }
-
 // ── Thinking Dots ─────────────────────────────────────────────────────────────
 function ThinkingDots() {
   return (
